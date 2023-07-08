@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 pipeline {
-     agent any 
+     agent any
+     triggers{
+        pollSCM('*****')
+     }
      stages {
          stage("Checkout") {
                      steps {
