@@ -18,7 +18,7 @@ pipeline {
 
                      }
                  }
-          stage("Compile") { 
+          stage("Compilex") {
                steps { 
                     sh "./gradlew compileJava" 
                } 
