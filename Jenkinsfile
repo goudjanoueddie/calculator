@@ -18,7 +18,7 @@ pipeline {
 
                      }
                  }
-          stage("Compilex") {
+          stage("Compile") {
                steps { 
                     sh "./gradlew compileJava" 
                } 
@@ -43,11 +43,11 @@ pipeline {
      }*/
 
      /*Add email notification to pipeline*/
-     post{
+     /*post{
         always{
             mail to:'goudjanoueddie@gmail.com',
             subject:"Completed Pipeline: ${currentBuild.fullDisplayName}",
             body:"Your Build completed, please check: ${env.BUILD_URL}"
         }
-     }
+     }*/
 } 
