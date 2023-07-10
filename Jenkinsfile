@@ -41,4 +41,13 @@ pipeline {
             cleanWs()
         }
      }*/
+
+     /*Add email notification to pipeline*/
+     post{
+        always{
+            mail to:'goudjanoueddie@gmail.com',
+            subject:"Completed Pipeline: ${currentBuild.fullDisplayName}",
+            body:"Your Build completed, please check: ${env.BUILD_URL}"
+        }
+     }
 } 
