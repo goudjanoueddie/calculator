@@ -46,11 +46,11 @@ pipeline {
           }
      }
      /**workspace clean Up*/
-     post{
+    /* post{
         always{
             cleanWs()
         }
-     }
+     }*/
 
      /*Add email notification to pipeline*/
      /*post{
