@@ -42,7 +42,7 @@ pipeline {
           stage("Docker build"){
                 steps{
                 //sh "docker build -t goudjanoueddie/calculator ."
-                    sh "docker run --privileged --name dind -d docker:stable-dind"
+                  sh "docker run -ti --rm -v /var/run/docker.sock:/var/run/docker.sock"
                 }
           }
      }
