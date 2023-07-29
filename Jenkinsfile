@@ -41,7 +41,8 @@ pipeline {
           }
           stage("Docker build"){
                 steps{
-                sh "docker build -t goudjanoueddie/calculator ."
+                //sh "docker build -t goudjanoueddie/calculator ."
+                    sh "docker run --privileged --name dind -d docker:stable-dind"
                 }
           }
      }
