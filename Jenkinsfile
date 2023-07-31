@@ -61,6 +61,7 @@ pipeline {
                  sh 'gradle --version'
              }
      }
+    }
      /**workspace clean Up*/
     post{
         always{
@@ -68,6 +69,4 @@ pipeline {
         }
      }
 
-
-}
 }
