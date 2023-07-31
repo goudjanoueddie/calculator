@@ -1,27 +1,27 @@
 #!/usr/bin/env groovy
 pipeline {
-     agent any
-     /*triggers{
+    agent any
+    /*triggers{
         pollSCM('* * * * *')
      }*/
-     stages {
-         stage("Checkout") {
-                     steps {
-                        dir("neptune") {
-                                   git(
-                                              url: 'https://github.com/goudjanoueddie/calculator.git',
-                                              branch: 'main',
-                                              changelog:true,
-                                              poll:true
-                                          )
-                        }
+    stages {
+        stage("Checkout") {
+            steps {
+                dir("neptune") {
+                    git(
+                            url: 'https://github.com/goudjanoueddie/calculator.git',
+                            branch: 'main',
+                            changelog: true,
+                            poll: true
+                    )
+                }
 
-                     }
-                 }
-          stage("Compile") {
-               steps { 
-                    sh "./gradlew compileJava" 
-               } 
+            }
+        }
+        stage("Compile") {
+            steps {
+                sh "./gradlew compileJava"
+            }
           }
           stage("Unit test") {
                steps { 
@@ -29,13 +29,13 @@ pipeline {
                } 
           }
           stage("Code Coverage"){
-                steps{
+                step s{
                     sh "./gradlew jacocoTestReport"
                     sh "./gradlew jacocoTestCoverageVerification"
                 }
           }
           stage("Package"){
-                steps{
+                step s{
                     sh "./gradlew build"
                 }
           }
@@ -68,12 +68,6 @@ pipeline {
         }
      }
 
-     /*Add email notification to pipeline*/
-     /*post{
-        always{
-            mail to:'goudjanoueddie@gmail.com',
-            subject:"Completed Pipeline: ${currentBuild.fullDisplayName}",
-            body:"Your Build completed, please check: ${env.BUILD_URL}"
-        }
-     }*/
-} 
+
+}
+}
