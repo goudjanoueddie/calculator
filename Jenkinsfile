@@ -29,13 +29,13 @@ pipeline {
                } 
           }
           stage("Code Coverage"){
-                step s{
+                steps{
                     sh "./gradlew jacocoTestReport"
                     sh "./gradlew jacocoTestCoverageVerification"
                 }
           }
           stage("Package"){
-                step s{
+                steps{
                     sh "./gradlew build"
                 }
           }
