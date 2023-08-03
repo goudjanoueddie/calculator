@@ -44,6 +44,11 @@ pipeline {
                 sh "docker build -t goudjanoueddie/calculator ."
                 }
           }
+        stage("Docker push"){
+            steps{
+                sh "docker push goudjanoueddie/calculator"
+            }
+        }
 
     }
      /**workspace clean Up*/
