@@ -45,12 +45,12 @@ pipeline {
                 }
           }
         stage("Docker push"){
-            //steps{
+            steps{
                 withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "" ]){
                     sh "docker push goudjanoueddie/calculator"
                 }
 
-            //}
+            }
         }
 
     }
