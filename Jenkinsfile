@@ -57,11 +57,18 @@ pipeline {
                 sh "docker run -d --rm -p 8765:8080 --name calculator goudjanoueddie/calculator"
             }
         }
+        stage("Acceptance test"){
+            steps{
+                sleep 60
+                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+            }
+        }
 
     }
      /**workspace clean Up*/
     post{
         always{
+            sh "docker stop calculator"
             cleanWs()
         }
      }
