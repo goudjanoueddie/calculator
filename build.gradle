@@ -30,8 +30,14 @@ dependencies {
 
 }
 
+tasks.register('acceptanceTest',Test){
+	include '**/acceptance/**'
+	systemProperties System.getProperties()
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
+	exclude '**/acceptance/**'
 }
 jacocoTestCoverageVerification{
 	violationRules{
@@ -42,3 +48,4 @@ jacocoTestCoverageVerification{
 		}
 	}
 }
+

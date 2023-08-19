@@ -34,7 +34,7 @@ pipeline {
                     sh "./gradlew jacocoTestCoverageVerification"
                 }
           }
-          stage("Package"){
+          stage("Packagex"){
                 steps{
                     sh "./gradlew build"
                 }
