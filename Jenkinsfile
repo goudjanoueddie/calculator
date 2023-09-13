@@ -34,12 +34,12 @@ pipeline {
                     sh "./gradlew jacocoTestCoverageVerification"
                 }
           }
-          stage("Packagex"){
+          stage("Package"){
                 steps{
                     sh "./gradlew build"
                 }
           }
-          stage("Docker build"){
+          stage("Docker build Step"){
                 steps{
                 sh "docker build -t goudjanoueddie/calculator ."
                 }
