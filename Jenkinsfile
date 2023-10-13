@@ -59,6 +59,7 @@ pipeline {
         }
         stage("Acceptance test without kubernetes"){
             steps{
+                //wait sixty milliseconds
                 sleep 60
                 sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
             }
