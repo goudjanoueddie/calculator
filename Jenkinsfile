@@ -28,7 +28,7 @@ pipeline {
                     sh "./gradlew test" 
                } 
           }
-          /*stage("Code Coveragex"){
+          /*stage("Code Coverage"){
                 steps{
                     sh "./gradlew jacocoTestReport"
                     sh "./gradlew jacocoTestCoverageVerification"
